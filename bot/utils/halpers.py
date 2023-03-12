@@ -1,9 +1,3 @@
-import datetime
-
-
-def get_current_time():
-    """
-    Возвращает текущее время в формате HH:MM.
-    """
-    now = datetime.datetime.now()
-    return f"{now.hour:02d}:{now.minute:02d}"
+# Функция для удаления лишних пробелов и знаков препинания
+def preprocess_text(text):
+    return ' '.join(text.split())

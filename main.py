@@ -1,7 +1,7 @@
 import telebot
 import random
-from config import TOKEN, predictions
-from conversation_module import start_bot
+from bot.config import TOKEN, predictions
+from bot.conversation_module import start_bot
 
 bot = telebot.TeleBot(TOKEN)
 
@@ -15,10 +15,10 @@ def send_welcome(message):
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     print(
-        f'данные пользователя: name - {message.chat.first_name}; id - {message.chat.id}')
-    print(f'сообщение: {message.text}')
+        f'personal data: name - {message.chat.first_name}; id - {message.chat.id}')
+    print(f'message: {message.text}')
     response = random.choice(predictions)
-    print(f'ответ: {response}')
+    print(f'response: {response}')
     bot.reply_to(message, response)
 
 
